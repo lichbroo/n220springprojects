@@ -31,6 +31,9 @@ let objCircle = {
 function draw() {
     circle(objCircle.x, objCircle.y, objCircle.size);
     if(mouseIsPressed) {
-        objCircle.offsetX = -1;
+        objCircle.offsetX -= 1;
+    }
+    else {
+        objCircle.offsetX += 1;
     }
 }

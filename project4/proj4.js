@@ -1,3 +1,8 @@
+// eli brooks
+// objects exercises
+// due 2/10
+
+// declare the ball object
 let objBall = {
     x: 100,
     y: 100,
@@ -5,6 +10,7 @@ let objBall = {
     size: 25,
 };
 
+// general setup 
 function setup() {
     createCanvas(500, 400);
 
@@ -13,6 +19,7 @@ function setup() {
     fill(objBall.ballColor);
 }
 
+// a second circle for the second prompt
 let objCircle = {
     x: 300,
     y: 100,
@@ -20,9 +27,10 @@ let objCircle = {
     offsetX: 100,
 }
 
+// calling the circle
 function draw() {
     circle(objCircle.x, objCircle.y, objCircle.size);
-    if(mousePressed) {
+    if(mouseIsPressed) {
         objCircle.offsetX = -1;
     }
 }

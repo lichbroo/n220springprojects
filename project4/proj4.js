@@ -36,4 +36,9 @@ function draw() {
     else {
         objCircle.offsetX += 1;
     }
+
+    // stop it at 0, reset
+    if (objCircle.offsetX <= 0) {
+        objCircle.offsetX += 100;
+    }
 }

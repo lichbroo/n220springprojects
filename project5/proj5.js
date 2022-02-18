@@ -11,7 +11,6 @@ function increase() {
 }
 
 let dvBox2 = document.getElementById("box2");
-let size = 100;
 
 dvBox2.style.backgroundColor = "#0335fc";
 dvBox2.style.height = size + "px";

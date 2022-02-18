@@ -1,3 +1,6 @@
+// eli brooks
+// 2/13/22
+
 // create first box + size for both
 let dvBox = document.getElementById("box");
 let size = 100;

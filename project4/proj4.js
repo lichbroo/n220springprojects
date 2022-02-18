@@ -16,6 +16,7 @@ function setup() {
 
     // create circle w above stats
     circle(objBall.x, objBall.y, objBall.size);
+    // the part that is changed is the ball fill -- in this one, it stays white.
     fill(objBall.ballColor);
 }
 

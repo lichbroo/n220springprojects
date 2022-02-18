@@ -9,3 +9,4 @@ function grow() {
     dvBox.style.height = size * 1.1 + "px";
     dvBox.style.width = size * 1.1 + "px";
 }
+console.log(grow);

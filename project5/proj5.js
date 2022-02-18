@@ -5,8 +5,7 @@ dvBox.style.backgroundColor = "#32a852";
 dvBox.style.height = size + "px";
 dvBox.style.width = size + "px";
 
-function grow() {
+function increase() {
     dvBox.style.height = size * 1.1 + "px";
     dvBox.style.width = size * 1.1 + "px";
 }
-console.log(grow);

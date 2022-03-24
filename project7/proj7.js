@@ -16,7 +16,7 @@ function numLog() {
     let tipVal = numberName.value;
     var tip = parseInt(tipVal * .20);
     var total = parseInt(tipVal);
-    dvNumberOutput.innerHTML = "Tip (20%): " + tip + " Total: " + total + ".";
+    dvNumberOutput.innerHTML = "Tip (20%): " + tip + " Total: " + (total + tip);
 
     numberName.value ="";
 }

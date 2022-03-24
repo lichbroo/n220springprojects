@@ -11,3 +11,11 @@ function logText() {
 
 let numberName = document.getElementById("numberName");
 let dvNumberOutput = document.getElementById("numOutput");
+
+function numLog() {
+    let tipVal = numberName.value;
+    let tip = `${tipVal}`;
+    dvWordOutput.innerHTML = "Hello, " + tip + ".";
+
+    numberName.value ="";
+}

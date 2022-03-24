@@ -15,7 +15,7 @@ let dvNumberOutput = document.getElementById("numOutput");
 function numLog() {
     let tipVal = numberName.value;
     let tip = `${tipVal}`;
-    dvWordOutput.innerHTML = "Hello, " + tip + ".";
+    dvNumberOutput.innerHTML = "Hello, " + tip + ".";
 
     numberName.value ="";
 }

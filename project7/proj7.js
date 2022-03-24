@@ -14,8 +14,8 @@ let dvNumberOutput = document.getElementById("numOutput");
 
 function numLog() {
     let tipVal = numberName.value;
-    var tip = parseInt(tipVal);
-    dvNumberOutput.innerHTML = "Hello, " + tip + ".";
+    var tip = parseInt(tipVal * .20);
+    dvNumberOutput.innerHTML = "Tip (20%): " + tip + ".";
 
     numberName.value ="";
 }

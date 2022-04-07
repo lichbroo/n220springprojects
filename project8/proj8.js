@@ -11,3 +11,14 @@ function genRandom() {
     dvNumOutput.innerHTML = "Number: " + num;
 }
 
+// make the div usable in js
+let dvWordOutput = document.getElementById("wordOutput");
+
+// create array of strings
+const consol = ["xbox", "pc", "playstation"];
+
+// function to output selection
+function conOutput() {
+    let answer = consol[0];
+    dvWordOutput.innerHTML = answer;
+}

@@ -5,11 +5,11 @@
 // make the div usable in js
 let dvNumOutput = document.getElementById("numOutput");
 
-function picker() {
-    Math.floor(Math.random() * 10);
-}
+//function picker() {
+ //   let num = Math.floor(Math.random() * 10);
+//}
 
 function genRandom() {
-    let num = picker();
+    let num = Math.floor(Math.random() * 10);
     dvNumOutput.innerHTML = "Number: " + num;
 }

@@ -53,13 +53,13 @@ function winGame(){
         }
         else 
         {
-            document.getElementById("result3").innerHTML = "Winner";
+            document.getElementById("result3").innerHTML = "Loser";
             break;
         }
             if(count == 3) 
         {
             console.log(count);
-            document.getElementById("result3").innerHTML = "Loser";
+            document.getElementById("result3").innerHTML = "Winner";
             break;
         }
     }

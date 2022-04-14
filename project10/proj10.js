@@ -8,6 +8,23 @@ function colorChange(){
     event.target.style.backgroundColor = response;
     }
 
+// flip flash cards
+function itsClicked1(){
+    let response = event.target.getAttribute("data-response");
+    document.getElementById('answer1').innerHTML = response;
+}
+        
+function itsClicked2(){
+    let response = event.target.getAttribute("data-response");
+            document.getElementById('answer2').innerHTML = response;
+}
+        
+function itsClicked3(){
+    let response = event.target.getAttribute("data-response");
+    document.getElementById('answer3').innerHTML = response;
+}
+
+
 // declare colors
 let red = 0;
 let blue = 0;
@@ -29,7 +46,6 @@ function changeColor(){
     dvMain.style.backgroundColor = color;
 
     displayDiv.innerHTML = color;
-
 
 }
 

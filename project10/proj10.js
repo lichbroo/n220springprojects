@@ -51,7 +51,6 @@ function changeColor(){
 
 // functions to change color values
 function moreRed(){
-
     red += Number(event.target.getAttribute("data-num"));
     changeColor();
 }

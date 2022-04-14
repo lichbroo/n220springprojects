@@ -2,6 +2,12 @@
 // 4/12/22
 // event exercises
 
+// turn the 3 boxes to the clicked color
+function colorChange(){
+    let response = event.target.getAttribute("data-response");
+    event.target.style.backgroundColor = response;
+    }
+
 // declare colors
 let red = 0;
 let blue = 0;

@@ -4,7 +4,7 @@
 
 // compute average of numbers split by ,
 function avgScore(){
-    var scoreVar = userNum.value;
+    var scoreVar = userNumber.value;
     let scoreArray = scoreVar.split(",");
     
     let sum = 0;

@@ -37,7 +37,7 @@ function badWords(){
         total += 1;
         }
         }
-        document.getElementById("result2").innerHTML = "Number of Bad Words: " + total;
+        document.getElementById("result2").innerHTML = "Bad Word Count: " + total;
     }
 
 // check for three 1's in input

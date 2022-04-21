@@ -33,3 +33,11 @@ times = times.sort(function(a,b){
 for(let i = 0; i<times.length; i++) {
     document.getElementById("runnerUp").innerHTML += "Final Time: " + times[i] + "<br>";
 }
+
+// array of favorites
+var favorites = ["YouTube", "Donuts", "French fries", "Code that works"];
+
+// output each
+for(let i = 0; i < favorites.length; i++){
+    document.getElementById("favorray").innerHTML += favorites[i] += ", is one of my favorite things." + "<br>";
+}

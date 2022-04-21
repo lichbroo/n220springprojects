@@ -4,7 +4,7 @@
 
 // for loop to run 5 times
 for(let i = 1; i <= 5; i++){
-    document.getElementById("loop").innerHTML+= i + "000";
+    document.getElementById("loop").innerHTML+= i + "000 ";
 }
 
 // for loop to run it 25 times

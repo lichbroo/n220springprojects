@@ -21,5 +21,15 @@ for(let i = 1; i <= 25; i++){
    if(i % 3 == 0  && i % 5 == 0){
         document.getElementById("beepBop").innerHTML += "Beep Bop" + "<br>";
     }
+}
 
+// runner up times
+var times = [10.76, 11.02, 11.10];
+
+// make new places for second and third times
+times = times.sort(function(a,b){
+    return a - b; 
+});
+for(let i = 0; i<times.length; i++) {
+    document.getElementById("runnerUp").innerHTML += "Final Time: " + times[i] + "<br>";
 }

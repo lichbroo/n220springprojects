@@ -3,7 +3,7 @@
 // loops and arrays exercises
 
 // for loop to run 5 times
-for(let i = 1; i <= 25; i++){
+for(let i = 1; i <= 5; i++){
     document.getElementById("loop").innerHTML+= i + "000";
 }
 

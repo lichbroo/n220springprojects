@@ -9,6 +9,7 @@ let board;
 let winner;
 var cnv;
 
+// center the board
 function centerCanvas() {
   var x = (windowWidth - width) / 2;
   var y = (windowHeight - height) / 2;
@@ -198,7 +199,7 @@ class Player {
     if(board.turn === this.t){
       let cx = int(Math.floor(mouseX/board.cSize));
       let cy = int(Math.floor(mouseY/board.cSize));
-      b.update(cx, cy, this.t);
+      board.update(cx, cy, this.t);
     }
   }
   

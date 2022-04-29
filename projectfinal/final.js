@@ -26,7 +26,7 @@ function setup() {
 
 // p5 to help create place to play
 function draw() {
-  background(220);
+  background('#f7c22f');
   board.display();
 }
 
@@ -178,7 +178,6 @@ class Board {
     }
   }
 }
-
 
 // a class for the player
 class Player {

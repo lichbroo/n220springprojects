@@ -7,11 +7,19 @@ let playerTwo;
 let turn;
 let board;
 let winner;
+var cnv;
+
+function centerCanvas() {
+  var x = (windowWidth - width) / 2;
+  var y = (windowHeight - height) / 2;
+  cnv.position(x, y);
+}
 
 function setup() {
-  playerOne = new Player("x");
-  playerTwo = new Player("o");
-  createCanvas(500, 500);
+  playerOne = new Player("X");
+  playerTwo = new Player("O");
+  cnv = createCanvas(500, 500);
+  centerCanvas();
   board = new Board(3, playerOne, playerTwo); // # of cells
 }
 

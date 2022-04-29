@@ -6,12 +6,13 @@ let playerOne;
 let playerTwo;
 let turn;
 let board;
+let winner;
 
 function setup() {
-  playerOne = new Player("X");
-  playerTwo = new Player("O");
-  createCanvas(400, 400);
-  board = new Board(3, playerOne, playerTwo);
+  playerOne = new Player("x");
+  playerTwo = new Player("o");
+  createCanvas(500, 500);
+  board = new Board(3, playerOne, playerTwo); // # of cells
 }
 
 // p5 to help create place to play
@@ -22,41 +23,39 @@ function draw() {
 
 function mousePressed(){
 	if (!board.winState){
-    if (board.turn === "X"){
+    if (board.turn === "x"){
       playerOne.select(board);
     } else {
       playerTwo.select(board);
     }
-    board.toggleTurn();
+    board.changeTurn();
   } else {
   	board.newGame();
   }
 }
 
-// a class for the board
+// a class for the board and turns
 class Board {
   constructor(size, playerOne, playerTwo){
-    //data needed for the board
     this.s = size;
     this.cells = [];
     this.cSize = (width-1)/this.s;
-		//data dealing with players
     this.playerOne = playerOne;
     this.playerTwo = playerTwo;
     this.turn = this.playerOne.t;
-    //data needed to deal with winning
     this.winState = false;
     this.resultText = "";
     this.newGame();
   }
   
+  // styling post-win
   display(){
     let cSize = this.cSize;
     if (this.winState){
       textSize(24);
       textAlign(CENTER);
     	text(this.resultText, width/2, height/2);
-      text("Click anywhere for a new game", width/2, height/2+30);
+      text("Click to restart.", width/2, height/2+30);
       
     } else {
       this.cells.forEach(function(element){
@@ -74,14 +73,14 @@ class Board {
     this.cells.forEach(function(element){
 			if (element.r === r && element.c === c && element.v === 0){
       	element.t = t;
-        if(turn==="X"){
+        if(turn==="x"){
         	element.v = 1;
         } else {
         	element.v = -1;
         }
       }
     });
-    let result = this.checkResult()
+    let result = this.winPossible()
     if (result){
       this.winState = true;
       this.resultText = result + " wins!";
@@ -89,7 +88,7 @@ class Board {
   }
   
   // to give each player a turn, repeating
-  toggleTurn(){
+  changeTurn(){
   	if (this.turn == playerOne.t){
     	this.turn = playerTwo.t;
     } else {
@@ -97,9 +96,8 @@ class Board {
     }
   }
   
-  // displays win/tie messages depending
-  checkResult() {
-	let winner;
+  // displays win/tie messages
+  winPossible() {
     let playerOne = this.playerOne;
     let playerTwo = this.playerTwo;
     let rowSums = new Array(this.s);
@@ -182,16 +180,16 @@ class Board {
 
 // a class for the player
 class Player {
-	
   constructor(p){
     this.t = p;
     this.score = 0;
   }
   
-  select(b){
-    if(b.turn === this.t){
-      let cx = int(Math.floor(mouseX/b.cSize));
-      let cy = int(Math.floor(mouseY/b.cSize));
+  // cell styling
+  select(board){
+    if(board.turn === this.t){
+      let cx = int(Math.floor(mouseX/board.cSize));
+      let cy = int(Math.floor(mouseY/board.cSize));
       b.update(cx, cy, this.t);
     }
   }

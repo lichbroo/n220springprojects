@@ -63,9 +63,7 @@ class Board {
     if (this.winState){
       textSize(24);
       textAlign(CENTER);
-    	text(this.resultText, width/2, height/2);
-      text("Click to restart.", width/2, height/2+30);
-      
+      text(this.resultText, width/2, height/2);
     } else {
       this.cells.forEach(function(element){
         rect(element.r*cSize, element.c*cSize, cSize, cSize);

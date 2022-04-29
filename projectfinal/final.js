@@ -75,11 +75,11 @@ class Board {
     }
   }
   
-  // 
+  // input the player symbol to the cell
   update(r, c, t){
     let turn = this.turn;
     this.cells.forEach(function(element){
-			if (element.r === r && element.c === c && element.v === 0){
+		if (element.r === r && element.c === c && element.v === 0){
       	element.t = t;
         if(turn==="x"){
         	element.v = 1;

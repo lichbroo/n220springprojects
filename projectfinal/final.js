@@ -19,7 +19,7 @@ function centerCanvas() {
 function setup() {
   playerOne = new Player("X");
   playerTwo = new Player("O");
-  cnv = createCanvas(500, 500);
+  cnv = createCanvas(400, 400);
   centerCanvas();
   board = new Board(3, playerOne, playerTwo); // # of cells
 }
@@ -32,7 +32,7 @@ function draw() {
 
 function mousePressed(){
 	if (!board.winState){
-    if (board.turn === "x"){
+    if (board.turn === "X"){
       playerOne.select(board);
     } else {
       playerTwo.select(board);
@@ -82,7 +82,7 @@ class Board {
     this.cells.forEach(function(element){
 		if (element.r === r && element.c === c && element.v === 0){
       	element.t = t;
-        if(turn==="x"){
+        if(turn==="X"){
         	element.v = 1;
         } else {
         	element.v = -1;
@@ -175,12 +175,7 @@ class Board {
     this.cells = [];
     for (let i=0; i<this.s; i++){
       for (let j=0; j<this.s; j++){
-        this.cells.push({
-          "r": i,
-          "c": j,
-          "t": "",
-          "v": 0
-      	});
+        this.cells.push({"r": i, "c": j, "t": "","v": 0	});
     	}
     }
   }

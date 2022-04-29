@@ -1,47 +1,49 @@
-let b;
-let p1;
-let p2;
+// eli brooks
+// 4/25/22
+// final project
+
+let playerOne;
+let playerTwo;
 let turn;
-let score_div;
+let board;
 
 function setup() {
-  p1 = new Player("X");
-  p2 = new Player("O");
+  playerOne = new Player("X");
+  playerTwo = new Player("O");
   createCanvas(400, 400);
-  score_div = createDiv('').size(100, 25);
-  b = new Board(3, p1, p2); //this object tracks changes made to the board
+  board = new Board(3, playerOne, playerTwo);
 }
 
+// p5 to help create place to play
 function draw() {
   background(220);
-  b.display();
+  board.display();
 }
 
 function mousePressed(){
-	if (!b.winState){
-    if (b.turn === "X"){
-      p1.select(b);
+	if (!board.winState){
+    if (board.turn === "X"){
+      playerOne.select(board);
     } else {
-      p2.select(b);
+      playerTwo.select(board);
     }
-    b.toggleTurn();
+    board.toggleTurn();
   } else {
-  	b.newGame();
+  	board.newGame();
   }
 }
 
-//This class defines board attributes and methods
+// a class for the board
 class Board {
-	
-  constructor(size, p1, p2){
+  constructor(size, playerOne, playerTwo){
     //data needed for the board
     this.s = size;
     this.cells = [];
     this.cSize = (width-1)/this.s;
 		//data dealing with players
-    this.p1 = p1;
-    this.p2 = p2;
-    this.turn = this.p1.t;
+    this.playerOne = playerOne;
+    this.playerTwo = playerTwo;
+    this.turn = this.playerOne.t;
     //data needed to deal with winning
     this.winState = false;
     this.resultText = "";
@@ -64,10 +66,9 @@ class Board {
         text(element.t, element.r*cSize+cSize/2, element.c*cSize+cSize/1.5);
       });
     }
-    
   }
   
-  //this will allow users to make changes to the board
+  // 
   update(r, c, t){
     let turn = this.turn;
     this.cells.forEach(function(element){
@@ -83,25 +84,24 @@ class Board {
     let result = this.checkResult()
     if (result){
       this.winState = true;
-      this.resultText = "The winner is..." + result;
+      this.resultText = result + " wins!";
     }
   }
   
+  // to give each player a turn, repeating
   toggleTurn(){
-  	if (this.turn == p1.t){
-    	this.turn = p2.t;
-      score_div.html("Turn:" + p2.t);
+  	if (this.turn == playerOne.t){
+    	this.turn = playerTwo.t;
     } else {
-    	this.turn = p1.t;
-      score_div.html("Turn:" + p1.t);
+    	this.turn = playerOne.t;
     }
   }
   
-  //this will evaluate if someone has won the game
-  checkResult(){
-		let winner;
-    let p1 = this.p1;
-    let p2 = this.p2;
+  // displays win/tie messages depending
+  checkResult() {
+	let winner;
+    let playerOne = this.playerOne;
+    let playerTwo = this.playerTwo;
     let rowSums = new Array(this.s);
     let colSums = new Array(this.s);
     let diagSums = new Array(this.s);
@@ -123,46 +123,48 @@ class Board {
       	diagSums[1] += element.v;
       }
     });
+    // check for win through horizontal
     rowSums.forEach(function(element) {
     	if(element === s){
-      	winner = p1.t;
-        p1.win();
+      	winner = playerOne.t;
+        playerOne.win();
       }
       if (element === -1*s){
-      	winner = p2.t;
-        p2.win();
+      	winner = playerTwo.t;
+        playerTwo.win();
       }
     });
+    // check for win through vertical
     colSums.forEach(function(element) {
     	if(element === s){
-      	winner = p1.t;
-        p1.win();
+      	winner = playerOne.t;
+        playerOne.win();
       }
       if (element === -1*s){
-      	winner = p2.t;
-        p2.win();
+      	winner = playerTwo.t;
+        playerTwo.win();
       }
     });
+    // check for win through diagonal
     diagSums.forEach(function(element) {
     	if(element === s){
-      	winner = p1.t;
-        p1.win();
+      	winner = playerOne.t;
+        playerOne.win();
       }
       if (element === -1*s){
-      	winner = p2.t;
-        p2.win();
+      	winner = playerTwo.t;
+        playerTwo.win();
       }
     });
     if (numOpen === 0 ){
-      winner = "No one, it's a tie";
+      winner = "Neither";
     }
     return winner;
   }
   
   newGame(){
     this.winState = false;
-    this.turn = this.p1.t;
-  	score_div.html("Turn:" + this.p1.t);
+    this.turn = this.playerOne.t;
     this.cells = [];
     for (let i=0; i<this.s; i++){
       for (let j=0; j<this.s; j++){
@@ -178,17 +180,15 @@ class Board {
 }
 
 
-//this class defines a Player's attributes and methods 
+// a class for the player
 class Player {
 	
   constructor(p){
     this.t = p;
     this.score = 0;
-    //this.displayScore = createDiv(this.t + " Score: " + this.score);
   }
   
   select(b){
-		// console.log(b.turn);
     if(b.turn === this.t){
       let cx = int(Math.floor(mouseX/b.cSize));
       let cy = int(Math.floor(mouseY/b.cSize));
@@ -198,6 +198,5 @@ class Player {
   
   win(){
   	this.score ++;
-    //this.displayScore.html(this.t + " Score:" + this.score); 
   }
 }

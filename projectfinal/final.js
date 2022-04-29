@@ -30,6 +30,7 @@ function draw() {
   board.display();
 }
 
+// clickable squares
 function mousePressed(){
 	if (!board.winState){
     if (board.turn === "X"){
